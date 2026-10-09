@@ -127,9 +127,12 @@ a{color:inherit}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:0}
 .split > div{padding:40px;min-width:0;display:flex;flex-direction:column;gap:20px;align-items:flex-start}
 .split > div:first-child{border:2px solid var(--ink)}
-.split > div:last-child{background:var(--ink);color:var(--paper);border:2px solid var(--ink)}
+.split > div:nth-child(2){background:var(--ink);color:var(--paper);border:2px solid var(--ink)}
 .split h2{font-size:clamp(32px,4.6vw,52px)}
 .split p{margin:0;max-width:40ch}
+.split > .more{grid-column:1/-1;background:var(--paper);color:var(--ink);border:2px solid var(--ink);border-top:0;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 32px}
+.split .more > div{flex:1 1 300px;min-width:0}
+.split .more h3{font-size:clamp(24px,3vw,32px);margin-bottom:8px}
 @media (max-width:760px){.split{grid-template-columns:1fr}.split > div{padding:28px 22px}}
 
 footer{padding-block:40px 120px;border-top:1px solid var(--line-inv)}
@@ -230,6 +233,13 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
         <h2>Grupo do WhatsApp</h2>
         <p>Troque experiências, tire dúvidas e receba conteúdos novos para as conversas.</p>
         <a class="btn wa" href="#" target="_blank" rel="noopener" style="background:var(--paper);color:var(--ink);border-color:var(--paper)">Entrar no grupo</a>
+      </div>
+      <div class="more">
+        <div>
+          <h3>Quer mais informações pra virar voto?</h3>
+          <p>Veja o Onde Dá Pra Conversar: ondedapraconversar.com.br</p>
+        </div>
+        <a class="btn ghost" href="https://www.ondedapraconversar.com.br" target="_blank" rel="noopener">Acessar o site →</a>
       </div>
     </div>
   </div>
