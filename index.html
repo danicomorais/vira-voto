@@ -171,7 +171,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;
   <div class="wrap">
     <ol>
       <li>Escolha o público</li>
-      <li>Abra os seguidores no Instagram</li>
+      <li>Abra o perfil no Instagram e toque em seguidores</li>
       <li>Copie e cole as mensagens na ordem</li>
     </ol>
   </div>
@@ -361,9 +361,10 @@ Object.entries(CANDIDATOS).forEach(([k,c]) => {
     <div class="handle mute">@${esc(c.handle)}</div>
     <p>${esc(c.perfil)}</p>
     <div class="row">
-      <a class="btn ghost" href="https://www.instagram.com/${encodeURIComponent(c.handle)}/followers/" target="_blank" rel="noopener">Ver seguidores no Instagram</a>
+      <a class="btn ghost" href="https://www.instagram.com/${encodeURIComponent(c.handle)}/" target="_blank" rel="noopener">Abrir perfil no Instagram</a>
       <button class="btn" type="button" data-pick="${k}">Ver roteiro</button>
-    </div>`;
+    </div>
+    <p class="mute" style="font-size:.85em;margin-top:8px">No perfil, toque em <b>seguidores</b> para ver a lista.</p>`;
   cardsEl.appendChild(d);
 });
 cardsEl.addEventListener("click", e => { const b=e.target.closest("[data-pick]"); if(b) pick(b.dataset.pick); });
