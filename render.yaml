@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: viravoto
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .

@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta property="og:title" content="Vira Voto">
+<meta property="og:description" content="Mensagens prontas para conversar sobre o 2º turno">
+<title>Vira Voto</title>
+<meta name="description" content="Mensagens prontas para conversar sobre o 2º turno">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: cartaz em blocos alternando branco e preto; uma coluna estreita de leitura dentro de uma grade larga. Só tipografia, sem imagens. */
+:root{
+  --ink:#000; --paper:#fff; --mute:#5f5f5f; --mute-inv:#a8a8a8; --line:#e3e3e3; --line-inv:#2a2a2a;
+  --display:"Archivo Black","Arial Black",Impact,sans-serif;
+  --body:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:20px}
+section{padding-block:72px}
+.dark{background:var(--ink);color:var(--paper)}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;line-height:.95;margin:0;text-wrap:balance;letter-spacing:-.01em}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.mute{color:var(--mute)} .dark .mute{color:var(--mute-inv)}
+a{color:inherit}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 22px;border:2px solid var(--ink);background:var(--ink);color:var(--paper);font-family:var(--body);font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background .15s,color .15s;text-align:center}
+.btn:hover{background:var(--paper);color:var(--ink)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+.dark .btn{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.dark .btn:hover{background:var(--ink);color:var(--paper)}
+.dark .btn.ghost{background:transparent;color:var(--paper)}
+.dark .btn.ghost:hover{background:var(--paper);color:var(--ink)}
+.btn:focus-visible,.acc-head:focus-visible,.textlink:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+.textlink{background:none;border:0;padding:6px 0;font:700 13px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;text-decoration:underline;text-underline-offset:4px;cursor:pointer;color:inherit;min-height:44px}
+
+/* hero */
+.hero{padding-block:64px 56px}
+.hero h1{font-size:clamp(64px,16vw,188px);line-height:.85}
+.hero h1 span{display:block}
+.hero p{font-size:clamp(19px,2.4vw,24px);max-width:30ch;margin:28px 0 32px;line-height:1.35}
+.row{display:flex;flex-wrap:wrap;gap:12px}
+.hero .meta{margin-top:40px;padding-top:16px;border-top:1px solid var(--line-inv);display:flex;flex-wrap:wrap;gap:8px 32px}
+
+/* como funciona */
+.how{padding-block:40px;border-bottom:2px solid var(--ink)}
+.how ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:s}
+.how li{counter-increment:s;display:flex;gap:14px;align-items:baseline;min-width:0;font-weight:600;font-size:18px;line-height:1.3}
+.how li::before{content:counter(s);font-family:var(--display);font-size:40px;line-height:1}
+@media (max-width:720px){.how ol{grid-template-columns:1fr;gap:16px}}
+
+/* etapa 1 */
+.sec-head{display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.sec-head h2{font-size:clamp(36px,6vw,64px)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:860px){.cards{grid-template-columns:1fr}}
+.card{border:2px solid var(--ink);padding:24px;display:flex;flex-direction:column;gap:16px;min-width:0;transition:background .2s,color .2s}
+.card h3{font-size:clamp(30px,3.6vw,40px)}
+.card .handle{font-family:var(--mono);font-size:14px;word-break:break-all}
+.card p{margin:0;font-size:15px;line-height:1.45;flex:1}
+.card .row{flex-direction:column}
+.card .btn{width:100%}
+.card.on{background:var(--ink);color:var(--paper)}
+.card.on .mute{color:var(--mute-inv)}
+.card.on .btn{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.card.on .btn.ghost{background:transparent;color:var(--paper)}
+
+/* etapa 2 roteiro */
+#roteiro{border-top:2px solid var(--ink)}
+.script-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:24px}
+.progress{margin-bottom:28px}
+.progress .bar{height:8px;border:2px solid var(--ink);margin-top:8px}
+.progress .fill{height:100%;background:var(--ink);width:0;transition:width .3s}
+.acc{border-top:2px solid var(--ink)}
+.acc-item{border-bottom:2px solid var(--ink)}
+.acc-head{width:100%;display:grid;grid-template-columns:56px 1fr 32px;align-items:center;gap:12px;padding:20px 4px;background:none;border:0;color:inherit;text-align:left;cursor:pointer;font:inherit}
+.acc-head .n{font-family:var(--display);font-size:34px;line-height:1}
+.acc-head .t{font-weight:700;font-size:clamp(17px,2.2vw,21px);text-transform:uppercase;letter-spacing:.02em;line-height:1.2}
+.acc-head .sign{font-family:var(--mono);font-size:28px;text-align:right;line-height:1}
+.acc-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .25s ease}
+.acc-item.open .acc-body{grid-template-rows:1fr}
+.acc-inner{overflow:hidden;min-width:0}
+.acc-pad{padding:0 4px 28px 72px;display:flex;flex-direction:column;gap:16px}
+@media (max-width:600px){.acc-head{grid-template-columns:40px 1fr 24px}.acc-head .n{font-size:26px}.acc-pad{padding-left:4px}}
+.tip{font-size:14px;color:var(--mute);margin:0}
+.flag{border:2px solid var(--ink);padding:12px 14px;font-weight:700;font-size:15px;line-height:1.35}
+.msg{border:1px solid var(--ink);padding:18px 20px;white-space:pre-line;font-size:16px;line-height:1.6;max-width:68ch}
+.msg-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.sub{border:1px solid var(--line);}
+.sub + .sub{border-top:0}
+.sub-head{width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px;background:none;border:0;cursor:pointer;color:inherit;font:700 15px/1.3 var(--body);letter-spacing:.06em;text-transform:uppercase;text-align:left;min-height:52px}
+.sub-head:focus-visible{outline:3px solid var(--ink);outline-offset:-3px}
+.sub-head .sign{font-family:var(--mono);font-size:22px;font-weight:400}
+.sub.open{border-color:var(--ink)}
+.sub.open .sub-head{background:var(--ink);color:var(--paper)}
+.sub .acc-pad{padding:16px}
+.sub.open + .sub{border-top:1px solid var(--line)}
+
+/* boas práticas */
+.rules{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0;border-top:1px solid var(--line-inv)}
+.rules li{padding:20px 20px 20px 0;border-bottom:1px solid var(--line-inv);font-size:17px;line-height:1.45;min-width:0}
+.rules li strong{display:block;font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute-inv);margin-bottom:6px}
+
+/* convite + grupo */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.split > div{padding:40px;min-width:0;display:flex;flex-direction:column;gap:20px;align-items:flex-start}
+.split > div:first-child{border:2px solid var(--ink)}
+.split > div:last-child{background:var(--ink);color:var(--paper);border:2px solid var(--ink)}
+.split h2{font-size:clamp(32px,4.6vw,52px)}
+.split p{margin:0;max-width:40ch}
+@media (max-width:760px){.split{grid-template-columns:1fr}.split > div{padding:28px 22px}}
+
+footer{padding-block:40px 120px;border-top:1px solid var(--line-inv)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+
+/* flutuante mobile */
+.float{position:fixed;left:16px;right:16px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:20;display:none;border-color:var(--paper)}
+@media (max-width:720px){.float{display:flex}}
+
+/* modal */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.72);display:flex;align-items:center;justify-content:center;padding:16px;z-index:40}
+.modal-box{background:var(--paper);color:var(--ink);border:2px solid var(--ink);max-width:520px;width:100%;padding:28px;display:flex;flex-direction:column;gap:18px}
+.modal-box h3{font-size:30px}
+.modal-box .msg{max-width:none}
+
+/* toast */
+.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--ink);color:var(--paper);border:2px solid var(--paper);padding:12px 18px;font-weight:600;font-size:15px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:50;max-width:calc(100% - 32px);text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+</style>
+
+</head>
+<body>
+<header class="dark hero">
+  <div class="wrap">
+    <div class="label mute">2º turno · 25 de outubro</div>
+    <h1 style="margin-top:20px"><span>Vira</span><span>Voto</span></h1>
+    <p>Converse com quem votou no Renan, no Cury ou no Caiado. Uma conversa de cada vez.</p>
+    <div class="row">
+      <a class="btn" href="#publico">Começar</a>
+      <a class="btn ghost wa" href="#" target="_blank" rel="noopener">Entrar no grupo do WhatsApp</a>
+    </div>
+  </div>
+</header>
+
+<div class="how">
+  <div class="wrap">
+    <ol>
+      <li>Escolha o público</li>
+      <li>Abra os seguidores no Instagram</li>
+      <li>Copie e cole as mensagens na ordem</li>
+    </ol>
+  </div>
+</div>
+
+<section id="publico">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label mute">Etapa 1</div>
+      <h2>Com quem você quer conversar?</h2>
+    </div>
+    <div class="cards" id="cards"></div>
+  </div>
+</section>
+
+<section id="roteiro" hidden>
+  <div class="wrap">
+    <div class="script-top">
+      <div class="sec-head" style="margin:0">
+        <div class="label mute">Etapa 2 · Roteiro da conversa</div>
+        <h2 id="roteiro-title">Eleitor do Renan</h2>
+      </div>
+      <button class="textlink" id="trocar" type="button">Trocar de público</button>
+    </div>
+    <div class="progress">
+      <div class="label" id="prog-label">Passo 1 de 6</div>
+      <div class="bar"><div class="fill" id="prog-fill"></div></div>
+    </div>
+    <div class="acc" id="acc"></div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="sec-head"><div class="label mute">Antes de mandar</div><h2>Boas práticas</h2></div>
+    <ul class="rules">
+      <li><strong>Manual</strong>Uma mensagem de cada vez, mandada por você. Nada de robôs ou disparo em massa.</li>
+      <li><strong>Respeito</strong>Se a pessoa disser que não quer conversar, agradeça e encerre. Não insista.</li>
+      <li><strong>Escuta</strong>Escute mais do que fala. Ninguém muda de voto porque foi atacado.</li>
+      <li><strong>Verdade</strong>Use só informações verdadeiras e com fonte.</li>
+      <li><strong>Ritmo</strong>Fale com no máximo 20 a 30 pessoas novas por dia para o Instagram não bloquear sua conta.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="label mute">Chame mais gente</div>
+        <h2>Uma pessoa convence outra</h2>
+        <p>Mande o Vira Voto para amigos que também topam conversar com conhecidos.</p>
+        <button class="btn" id="convidar" type="button">Convidar amigos</button>
+      </div>
+      <div>
+        <div class="label mute" style="color:var(--mute-inv)">Comunidade</div>
+        <h2>Grupo do WhatsApp</h2>
+        <p>Troque experiências, tire dúvidas e receba conteúdos novos para as conversas.</p>
+        <a class="btn wa" href="#" target="_blank" rel="noopener" style="background:var(--paper);color:var(--ink);border-color:var(--paper)">Entrar no grupo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="dark">
+  <div class="wrap">
+    <span class="label">Feito por voluntários.</span>
+    <a class="btn ghost wa" href="#" target="_blank" rel="noopener">Grupo do WhatsApp</a>
+  </div>
+</footer>
+
+<a class="btn float wa" href="#" target="_blank" rel="noopener">Grupo do WhatsApp →</a>
+
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-t">
+  <div class="modal-box">
+    <div class="label mute">Convite</div>
+    <h3 id="modal-t">Chame mais gente</h3>
+    <div class="msg" id="convite-txt"></div>
+    <div class="row">
+      <button class="btn" id="copiar-convite" type="button">Copiar convite</button>
+      <a class="btn ghost" id="wa-convite" href="#" target="_blank" rel="noopener">Enviar no WhatsApp</a>
+    </div>
+    <button class="textlink" id="fechar" type="button" style="align-self:flex-start">Fechar</button>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ============ CONTEÚDO (edite aqui) ============ */
+const GRUPO_WHATSAPP = "https://chat.whatsapp.com/K2XkFQzFrEwLICjiZ4Odls?s=cl&p=a&mlu=4&ilr=4";
+const LINK_DA_PAGINA = location.origin + location.pathname.replace(/index\.html$/, "");
+const CONVITE = "Tô usando o Vira Voto pra conversar com eleitores do Renan, do Cury e do Caiado sobre o 2º turno. Tem mensagem pronta, é só copiar e colar. Bora?";
+
+const COMUNS = {
+  p1: { titulo: "Abordagem", dica: "Espere a resposta. Se a pessoa não quiser conversar, agradeça e encerre.",
+    texto: "Oi, tudo bem? Vi que você curte o perfil do {{candidato}}. Estou entrando em contato com algumas pessoas que têm afinidade com ele para conversar sobre o 2º turno, numa boa, sem briga. Você já definiu em quem vai votar no 2º turno?" },
+  p4: { titulo: "Convite para ligação", dica: "Se a pessoa topar, combine o melhor horário e ligue pelo próprio Instagram ou WhatsApp.",
+    texto: "Tô gostando muito da nossa conversa! Você teria uns 10 minutinhos pra gente falar por telefone ou por áudio? Às vezes é mais fácil trocar ideia assim do que por mensagem." },
+  p5: { titulo: "Continuar a conversa", dica: "Se a resposta for sim, volte a falar com a pessoa perto do dia 25.",
+    texto: "Se não der pra falar agora, tudo bem! Posso continuar te mandando umas coisas até o dia da eleição? Prometo não encher, mando só o que for relevante. 🙂" },
+  p6: { titulo: "Fechamento e convite pro grupo", dica: "Feche sempre com gentileza, qualquer que tenha sido a resposta.",
+    texto: "Valeu demais pela conversa, de verdade. Independente do seu voto, foi bom trocar ideia com alguém que pensa diferente. Se quiser, tem um grupo onde a gente compartilha informação sobre o 2º turno: " + GRUPO_WHATSAPP + "\nE se você conhece alguém que ainda está em dúvida, me apresenta? 🙏" }
+};
+
+const CANDIDATOS = {
+  renan: {
+    nome: "Renan", nomeCompleto: "Renan Santos", handle: "renansantosmbl",
+    perfil: "Jovem, antissistema, cansado da polarização e contra a corrupção.",
+    lula: "Que bom! E olha, faz muita diferença você estar aqui, porque muita gente que seguia o Renan ainda está em dúvida. Topa me ajudar a conversar com mais algumas pessoas? Tem mensagem pronta, é só copiar e colar. Te mando o link.",
+    flavio: "Entendi, respeito. Posso te perguntar o que pesou mais pra você? Pergunto porque muita gente que curte o Renan votou nele justamente por estar cansada dos dois lados e das velhas famílias da política. Pra mim, o 2º turno não é sobre virar petista. É sobre não entregar o país de novo para um clã que trata o Estado como negócio de família. Faz sentido pra você?",
+    indeciso: "Super normal, muita gente que votou no Renan está assim. Ninguém precisa amar nenhum dos dois. A pergunta do 2º turno é mais simples: qual dos dois cenários te dá mais segurança de que as instituições vão continuar funcionando e de que dá pra cobrar e fiscalizar? Me conta o que mais te incomoda em cada um?",
+    p3: "Sei que você não morre de amores pelo Lula, e não vou fingir que ele é perfeito.\n\nMas repara no que o próprio Renan disse sobre o Flávio: que nunca viu um argumento pra votar nele que não fosse \"tirar o Lula\". E chamou o cara de desqualificado.\n\nSe a ideia do Missão é construir uma direita nova, sem família Bolsonaro mandando em tudo, o Flávio no poder é o pior cenário possível pra isso. O bolsonarismo volta com força total e engole qualquer alternativa por mais 4, talvez 8 anos.\n\nVotar no Lula pode ser o jeito mais pragmático de abrir espaço pra essa direita nova em 2030. Se não der, pelo menos não dá teu voto pro Flávio. Pensa nisso!",
+    linkConteudo: ""
+  },
+  cury: {
+    nome: "Cury", nomeCompleto: "Augusto Cury", handle: "augustocury",
+    perfil: "Valoriza diálogo, saúde emocional, educação, família e paz.",
+    lula: "Que bom! Acho que quem se identificou com o Cury entende bem a importância de baixar a temperatura e voltar a conversar. Topa me ajudar a falar com mais algumas pessoas? Tem mensagem pronta, é só copiar e colar. Te mando o link.",
+    flavio: "Respeito sua escolha. Posso te perguntar o que pesou mais? Fico pensando que o Cury falou muito sobre um país menos agressivo, que cuide da saúde emocional das pessoas e invista em educação. Pra mim, o projeto do Flávio vem da mesma família que alimentou muito ódio e divisão nos últimos anos, inclusive dentro das famílias. Você sente isso também?",
+    indeciso: "Entendo totalmente. Quem votou no Cury geralmente busca alguém que una mais do que divida. Se você pensar nas suas prioridades (educação, saúde, sua família em paz), qual dos dois caminhos você acha que chega mais perto disso? Me conta o que mais pesa pra você.",
+    p3: "Não quero te convencer de nada no grito. Só queria te contar por que vou de Lula no dia 25, pensando menos em ideologia e mais no dia a dia: remédio de graça na Farmácia Popular, salário mínimo subindo acima da inflação, Bolsa Família pra quem precisa. Pra mim, o que pesa é ter alguém experiente e previsível num momento em que o país precisa de calma, não de mais confusão.\n\nSe quiser conversar sobre isso, tô aqui. E se ainda não decidiu, vale pensar com carinho antes de votar em branco. Esse voto pode decidir a eleição. Um abraço!",
+    linkConteudo: ""
+  },
+  caiado: {
+    nome: "Caiado", nomeCompleto: "Ronaldo Caiado", handle: "ronaldocaiado",
+    perfil: "Centro-direita, agro e interior. Valoriza gestão, segurança e estabilidade.",
+    lula: "Que legal! E faz muita diferença, porque é raro alguém que seguia o Caiado fazer essa escolha, e isso tem peso na conversa com os outros. Topa me ajudar a falar com mais algumas pessoas? Tem mensagem pronta, é só copiar e colar. Te mando o link.",
+    flavio: "Respeito, e imagino que pra muita gente que votou no Caiado esse seja o caminho natural. Posso te perguntar o que mais pesou? O Caiado sempre se apresentou como gestor sério e independente, sem precisar do sobrenome Bolsonaro. A minha dúvida é se o Flávio tem experiência de gestão e estabilidade pra tocar o país, ou se é só herança política. O que você acha?",
+    indeciso: "Faz sentido estar em dúvida. O Caiado era uma opção de direita com experiência de gestão, e ela saiu do páreo. Pensando no que importa no seu dia a dia (economia estável, preço das coisas, segurança, o agro andando), qual dos dois você acha que garante mais previsibilidade nos próximos quatro anos? Me conta o que mais te preocupa.",
+    p3: "No 2º turno, eu olhei o histórico de cada um. Foi no governo Lula que saíram o Estatuto da Pessoa Idosa, o BPC a partir dos 65 anos, a Farmácia Popular e a política de saúde do idoso no SUS. O Flávio, em mais de 7 anos de Senado, apresentou 62 projetos e só 2 viraram lei. Nenhum dos projetos dele pra idosos foi aprovado até agora.\n\nNão é questão de virar de esquerda. É escolher quem já mostrou que sabe governar. O próprio PSD liberou o voto, a decisão é sua. Só te peço pra pensar nisso antes do dia 25. Abraço!",
+    linkConteudo: ""
+  }
+};
+/* ============ FIM DO CONTEÚDO ============ */
+
+const $ = s => document.querySelector(s);
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const conviteCompleto = () => CONVITE + (LINK_DA_PAGINA ? " " + LINK_DA_PAGINA : "");
+
+document.querySelectorAll(".wa").forEach(a => a.href = GRUPO_WHATSAPP);
+
+// toast
+let tt;
+function toast(t){ const el=$("#toast"); el.textContent=t; el.classList.add("show"); clearTimeout(tt); tt=setTimeout(()=>el.classList.remove("show"),2400); }
+
+// copiar
+const store = [];
+function copyText(text, btn, label){
+  const done = () => {
+    toast("Copiado! Agora é só colar no Direct.");
+    if(btn){ const orig=label||btn.textContent; btn.textContent="Copiado"; setTimeout(()=>btn.textContent=orig,2000); }
+  };
+  const fallback = () => {
+    const ta=document.createElement("textarea"); ta.value=text; ta.setAttribute("readonly","");
+    ta.style.position="fixed"; ta.style.opacity="0"; document.body.appendChild(ta); ta.select();
+    let ok=false; try{ ok=document.execCommand("copy"); }catch(e){}
+    ta.remove();
+    if(ok) done(); else toast("Não deu para copiar. Selecione o texto e copie manualmente.");
+  };
+  try{
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(done, fallback); }
+    else fallback();
+  }catch(e){ fallback(); }
+}
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-copy]");
+  if(b) copyText(store[+b.dataset.copy], b, "Copiar mensagem");
+});
+
+// cards
+const cardsEl = $("#cards");
+Object.entries(CANDIDATOS).forEach(([k,c]) => {
+  const d=document.createElement("div"); d.className="card"; d.id="card-"+k;
+  d.innerHTML = `
+    <div class="label mute">Público</div>
+    <h3>Eleitor do ${esc(c.nome)}</h3>
+    <div class="handle mute">@${esc(c.handle)}</div>
+    <p>${esc(c.perfil)}</p>
+    <div class="row">
+      <a class="btn ghost" href="https://www.instagram.com/${encodeURIComponent(c.handle)}/followers/" target="_blank" rel="noopener">Ver seguidores no Instagram</a>
+      <button class="btn" type="button" data-pick="${k}">Ver roteiro</button>
+    </div>`;
+  cardsEl.appendChild(d);
+});
+cardsEl.addEventListener("click", e => { const b=e.target.closest("[data-pick]"); if(b) pick(b.dataset.pick); });
+
+// roteiro
+let maxStep = 0;
+function msgBlock(text){
+  const i = store.push(text) - 1;
+  return `<div class="msg">${esc(text)}</div>
+    <div class="msg-actions"><button class="btn" type="button" data-copy="${i}">Copiar mensagem</button></div>`;
+}
+function step(n, titulo, body){
+  return `<div class="acc-item" data-step="${n}" id="passo-${n}">
+    <button class="acc-head" type="button" aria-expanded="false">
+      <span class="n">${n}</span><span class="t">${esc(titulo)}</span><span class="sign" aria-hidden="true">+</span>
+    </button>
+    <div class="acc-body"><div class="acc-inner"><div class="acc-pad">${body}</div></div></div>
+  </div>`;
+}
+function sub(id, titulo, body){
+  return `<div class="sub" data-sub="${id}">
+    <button class="sub-head" type="button" aria-expanded="false"><span>${esc(titulo)}</span><span class="sign" aria-hidden="true">+</span></button>
+    <div class="acc-body"><div class="acc-inner"><div class="acc-pad">${body}</div></div></div>
+  </div>`;
+}
+function render(k){
+  const c = CANDIDATOS[k]; store.length = 0;
+  const fill = t => t.replace(/\{\{candidato\}\}/g, c.nomeCompleto);
+  const tip = t => `<p class="tip">${esc(t)}</p>`;
+  const p2 =
+    tip("Escolha a resposta de acordo com o que a pessoa disse no passo 1.") +
+    `<div>` +
+    sub("lula", "2.1  Se a pessoa disse LULA",
+      `<div class="flag">Já vota no Lula? Pule os passos 3, 4 e 5 e vá direto para o Passo 6 (convite pro grupo).</div>` +
+      msgBlock(c.lula) +
+      `<button class="textlink" type="button" data-goto="6" style="align-self:flex-start">Ir para o passo 6 →</button>`) +
+    sub("flavio", "2.2  Se a pessoa disse FLÁVIO", msgBlock(c.flavio) + tip("Ouça de verdade antes de seguir. Pergunte, não rebata.")) +
+    sub("indeciso", "2.3  Se a pessoa está INDECISA", msgBlock(c.indeciso) + tip("Deixe a pessoa falar sobre o que mais pesa para ela.")) +
+    `</div>`;
+  const p3 =
+    `<div class="flag">Só para quem respondeu FLÁVIO ou INDECISO.</div>` +
+    msgBlock(c.p3) +
+    (c.linkConteudo ? `<a class="btn ghost" href="${esc(c.linkConteudo)}" target="_blank" rel="noopener" style="align-self:flex-start">Abrir conteúdo</a>` : "") +
+    tip("Mande depois que a pessoa responder ao passo 2. Espere a reação antes de seguir.");
+  $("#acc").innerHTML =
+    step(1, COMUNS.p1.titulo, msgBlock(fill(COMUNS.p1.texto)) + tip(COMUNS.p1.dica)) +
+    step(2, "Resposta conforme o voto", p2) +
+    step(3, "Por que eu voto no Lula", p3) +
+    step(4, COMUNS.p4.titulo, msgBlock(COMUNS.p4.texto) + tip(COMUNS.p4.dica)) +
+    step(5, COMUNS.p5.titulo, msgBlock(COMUNS.p5.texto) + tip(COMUNS.p5.dica)) +
+    step(6, COMUNS.p6.titulo, msgBlock(COMUNS.p6.texto) + tip(COMUNS.p6.dica));
+}
+function setProgress(n){
+  maxStep = Math.max(maxStep, n);
+  $("#prog-label").textContent = `Passo ${maxStep} de 6`;
+  $("#prog-fill").style.width = (maxStep/6*100) + "%";
+}
+function openStep(n, scroll){
+  document.querySelectorAll(".acc-item").forEach(it => {
+    const on = +it.dataset.step === n && !(it.classList.contains("open") && !scroll);
+    it.classList.toggle("open", on);
+    it.querySelector(".acc-head").setAttribute("aria-expanded", on);
+    it.querySelector(".acc-head .sign").textContent = on ? "−" : "+";
+  });
+  setProgress(n);
+  if(scroll){ const el=$("#passo-"+n); setTimeout(()=>el.scrollIntoView({behavior:"smooth",block:"start"}),60); }
+}
+$("#acc").addEventListener("click", e => {
+  const g = e.target.closest("[data-goto]");
+  if(g){ openStep(+g.dataset.goto, true); return; }
+  const sh = e.target.closest(".sub-head");
+  if(sh){
+    const s = sh.parentElement, on = !s.classList.contains("open");
+    s.parentElement.querySelectorAll(".sub").forEach(x => { x.classList.remove("open"); x.querySelector(".sub-head").setAttribute("aria-expanded","false"); x.querySelector(".sign").textContent="+"; });
+    if(on){ s.classList.add("open"); sh.setAttribute("aria-expanded","true"); sh.querySelector(".sign").textContent="−"; }
+    return;
+  }
+  const h = e.target.closest(".acc-head");
+  if(h) openStep(+h.parentElement.dataset.step, false);
+});
+
+function pick(k){
+  document.querySelectorAll(".card").forEach(c => c.classList.toggle("on", c.id === "card-"+k));
+  $("#roteiro-title").textContent = "Eleitor do " + CANDIDATOS[k].nome;
+  maxStep = 0; render(k); $("#roteiro").hidden = false;
+  openStep(1, false);
+  setTimeout(()=>$("#roteiro").scrollIntoView({behavior:"smooth",block:"start"}),60);
+}
+$("#trocar").addEventListener("click", () => $("#publico").scrollIntoView({behavior:"smooth",block:"start"}));
+
+// convite
+const modal = $("#modal");
+$("#convidar").addEventListener("click", () => {
+  $("#convite-txt").textContent = conviteCompleto();
+  $("#wa-convite").href = "https://wa.me/?text=" + encodeURIComponent(conviteCompleto());
+  modal.hidden = false; $("#copiar-convite").focus();
+});
+$("#copiar-convite").addEventListener("click", e => copyText(conviteCompleto(), e.currentTarget, "Copiar convite"));
+$("#fechar").addEventListener("click", () => modal.hidden = true);
+modal.addEventListener("click", e => { if(e.target === modal) modal.hidden = true; });
+document.addEventListener("keydown", e => { if(e.key === "Escape") modal.hidden = true; });
+</script>
+
+</body>
+</html>
